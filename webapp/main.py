@@ -23,7 +23,7 @@
 #     return results[0]
 
 from fastapi import FastAPI, Request
-from transformers import GPT2LMHeadModel, GPT2Tokenizer, GPT2Model
+from transformers import GPT2Tokenizer, GPT2Model
 from fastapi.responses import HTMLResponse
 
 
@@ -39,13 +39,12 @@ tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 async def generate_text_post(request: Request):
     input_data = await request.json()
     input_text = input_data["input_text"]
-    
+
     # Generate text using Hugging Face GPT-2 model
     encoded_input = tokenizer.encode(input_text, return_tensors="pt")
     output = model.generate(encoded_input)
     generated_text = tokenizer.decode(output[0])
-    
-    # Format generated text as HTML
+# Format generated text as HTML
     html_content = generate_html(generated_text)
 
     return html_content
@@ -57,7 +56,6 @@ async def generate_text_get(input_text: str):
     encoded_input = tokenizer.encode(input_text, return_tensors="pt")
     output = model.generate(encoded_input)
     generated_text = tokenizer.decode(output[0])
-    
     # Format generated text as HTML
     html_content = generate_html(generated_text)
 
