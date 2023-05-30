@@ -67,8 +67,6 @@
 #     html_content = f"<h1>Generated Text</h1><p>{text}</p>"
 #     return html_content
 
-
-
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
@@ -77,9 +75,11 @@ app = FastAPI()
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 model = GPT2LMHeadModel.from_pretrained("gpt2")
 
+
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
+
 
 @app.post("/generate", response_class=HTMLResponse)
 async def generate_text(request: Request):
@@ -90,6 +90,5 @@ async def generate_text(request: Request):
     generated_text = tokenizer.decode(output[0])
     html_content = f"<h1>Generated Text</h1><p>{generated_text}</p>"
     return html_content
-
 # if __name__ == "__main__":
 #     uvicorn.run(app, host="0.0.0.0", port=8000)
