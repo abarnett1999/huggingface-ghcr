@@ -7,4 +7,5 @@ As a helpful tool, GPT-2 can assist with various tasks such as text generation, 
 Objective: I have created a web application that uses FastAPI with Hugging Face with pretrained GPT-2 model that is depoloyed in the AWS lambda cloud and exposes a single endpoint that you can interact with it. 
 
 
-Test Results: [View Test Report](/workspaces/huggingface-ghcr.html)
+
+[![Python application test with Github Actions](https://github.com/abarnett1999/new_901/actions/workflows/main.yml/badge.svg)](https://github.com/abarnett1999/new_901/actions/workflows/main.yml)
