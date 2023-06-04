@@ -50,6 +50,6 @@ test_read_root()
 test_generate_text()
 
 
-# Run tests and generate HTML report
-if __name__ == "__main__":
-    pytest.main(["-vv", "--html=report.html"])
+# # Run tests and generate HTML report
+# if __name__ == "__main__":
+#     pytest.main(["-vv", "--html=report.html"])
